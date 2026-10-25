@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "more-itertools/more-itertools",
+  "pr": 1028,
+  "sources": [
+   "SWE-rebench-V2"
+  ]
+ },
+ {
+  "repo": "pallets/click",
+  "pr": 3004,
+  "sources": [
+   "SWE-rebench-V2-PRs"
+  ]
+ }
+]

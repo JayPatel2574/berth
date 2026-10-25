@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+repos/
+release/
+runs/
+kaggle_out/
+data/verify*/
+data/official_grade*/
+data/gh_cache/
+.github_token
+.hf_token
+kaggle.json

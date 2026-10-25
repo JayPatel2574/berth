@@ -1,0 +1,4 @@
+evaluation:
+  max_time_minutes: 4.5
+  max_tool_calls: 40
+  max_turns: 40

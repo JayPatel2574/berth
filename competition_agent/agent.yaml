@@ -1,0 +1,19 @@
+# g4res reference agent: the single-agent baseline used for the g4res task set (paper track), ported to the
+# competition's declarative format. Same system prompt, tools and sampling as scripts/run_gemma.py; per-task budget
+# set by eval_config.yaml to fit ~120 hidden tasks into the 12-hour scorer limit.
+name: g4res_reference_agent
+model: gemma-4-31b-it-qat-w4a16-ct
+description: Single-agent Python bug fixer (g4res reference baseline).
+instruction: !include prompts/system.md
+tools:
+  - run_command
+  - read_file
+  - edit_file
+  - write_file
+  - submit_patch
+generate_content_config:
+  temperature: 0.7
+  max_output_tokens: 8192
+  thinking_config:
+    thinking_budget: 4096
+    include_thoughts: true
