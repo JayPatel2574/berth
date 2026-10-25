@@ -3,7 +3,7 @@
 Harness-compatible, post-cutoff Python tasks for offline Gemma 4 coding agents. This is the pipeline code and paper
 for the **Gemma 4 Developer Agent Paper Track** (Kaggle, 2026).
 
-- **Dataset:** https://huggingface.co/datasets/JayPatel2574/berth (also on Kaggle: [KAGGLE_DATASET_URL])
+- **Dataset:** https://huggingface.co/datasets/JayPatel2574/berth (also on Kaggle: https://www.kaggle.com/datasets/jayp2005/berth-swe-tasks)
 - **Paper:** [`paper/berth_paper.pdf`](paper/berth_paper.pdf) ([Markdown](paper/berth_paper.md))
 
 Berth has 653 verified bug-fix and feature tasks (301 core, 350 extended, 2 overlap) from 24 permissively licensed

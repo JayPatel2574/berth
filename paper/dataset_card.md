@@ -74,9 +74,6 @@ satisfy the official validator's prefix matching, some test ids were removed; th
 | `runs/gemma-4-31b-it-qat-w4a16-ct/` | Reference-agent trajectories (`.traj.jsonl`), our grading (`.json`), official grading (`.official.json`) |
 | `results/` | Localization baseline per task; every number in the paper (`paper_numbers.json`) |
 
-On Kaggle, `snapshots/` and `wheels/` ship as `snapshots.tar` and `wheels.tar`, because Kaggle unpacks archives inside
-datasets. Run `tar -xf snapshots.tar && tar -xf wheels.tar` first.
-
 ## Task fields
 
 Official columns: `instance_id, repo, base_commit, patch, test_patch, problem_statement, hints_text, created_at,

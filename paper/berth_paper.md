@@ -75,7 +75,7 @@ Graphs are built with an Apache-2.0 builder published by another participant, wh
 | Post-cutoff (issue & PR after Jan 2025) | 224 (209 compatible) | 348 | — |
 | Median added lines in gold patch | 19 | | |
 | Files changed (1 / 2 / 3) | 236 / 52 / 13 | | |
-| Median `FAIL_TO_PASS` / `PASS_TO_PASS` | 2 / 150 | | |
+| Median `FAIL_TO_PASS` / `PASS_TO_PASS` | 2 / 137 | | |
 | Median gold functions edited | 2 | | |
 | Tasks adding new definitions | 119 | | |
 | Median graph size (nodes) | 1,173 (86–2,318) | | |
@@ -95,7 +95,7 @@ For each of the 292 core tasks whose fix edits at least one function or class, w
 | BM25 (code) | 31.2% | 53.4% | 64.0% | 77.7% | 57.9% | 82.2% |
 | BM25 + graph | 24.3% | 53.4% | 65.1% | 77.4% | 64.4% | 85.6% |
 
-Graph propagation is a measurable trade-off rather than a free gain. It lowers top-1 function accuracy by 6.9 points [−12.3, −1.4] and raises top-1 file accuracy by 6.5 points [+1.0, +12.3]; at top 10 the two are indistinguishable (+1.0 [−2.1, +4.5]). Neighbours of a lexical match are often in the right file but are rarely the exact function to change. Our TF-IDF result (57.5% at top 10) is close to the 52% reported on the official tasks [9], which suggests Berth's localization difficulty is comparable.
+Graph propagation is a measurable trade-off rather than a free gain. It lowers top-1 function accuracy by 6.9 points [−12.7, −1.4] and raises top-1 file accuracy by 6.5 points [+0.7, +12.0]; at top 10 the two are indistinguishable (+1.0 [−2.4, +4.1]). Neighbours of a lexical match are often in the right file but are rarely the exact function to change. Our TF-IDF result (57.5% at top 10) is close to the 52% reported on the official tasks [9], which suggests Berth's localization difficulty is comparable.
 
 ![Localization](figures/fig3_localization.png)
 
@@ -105,7 +105,7 @@ We ran the competition checkpoint `gemma-4-31b-it-qat-w4a16-ct` on Kaggle's 4×L
 
 ![Gemma 4 31B results](figures/fig2_gemma.png)
 
-**Overall.** 19.6% resolved [15.0, 24.2]; 22.0% [16.8, 27.8] on the 209 compatible post-cutoff tasks. Under our list-based grader on all 301 tasks the figure is 21.3%. Across all 301 attempts, the median used 25 turns and 12k output tokens, and 168 hit the 20-minute limit. The score belongs to this agent at this budget, not to the model: another participant reports about 49% for a tuned 31B agent on the official development set [6].
+**Overall.** 19.6% resolved [14.9, 24.2]; 22.0% [16.3, 27.8] on the 209 compatible post-cutoff tasks. Under our list-based grader on all 301 tasks the figure is 21.3%. Across all 301 attempts, the median used 25 turns and 12k output tokens, and 168 hit the 20-minute limit. The score belongs to this agent at this budget, not to the model: another participant reports about 49% for a tuned 31B agent on the official development set [6].
 
 **Failures are mostly localization failures.** In 59.1% [52.6, 65.6] of unresolved attempts that produced a patch, the patch did not touch any file the gold fix changes. This matches §5.1: retrieval, not editing, is where a 31B agent loses most tasks. That is the gap the graph tools and the localization labels are meant to measure.
 
@@ -138,7 +138,7 @@ SWE-bench introduced repository-level issue resolution judged by tests [7]. SWE-
 
 ## 9. Release and reproducibility
 
-Dataset (core, extended and overlap splits; snapshots, graphs, embeddings, wheels; all Gemma trajectories): **[KAGGLE_DATASET_URL]**, mirrored at **[HF_URL]**. Pipeline code (Apache-2.0), covering mining, verification, offline packaging, stability, localization, baselines, the Kaggle notebook generator and the numbers in this paper: **[GITHUB_URL]**. Each number in this paper is recomputed by `scripts/paper_numbers.py` from released files. Total compute was about 13 GPU-hours on Kaggle 4×L4 plus CPU-only verification.
+Dataset (core, extended and overlap splits; snapshots, graphs, embeddings, wheels; all Gemma trajectories): https://www.kaggle.com/datasets/jayp2005/berth-swe-tasks, mirrored at https://huggingface.co/datasets/JayPatel2574/berth. Pipeline code (Apache-2.0), covering mining, verification, offline packaging, stability, localization, baselines, the Kaggle notebook generator and the numbers in this paper: https://github.com/JayPatel2574/berth. Each number in this paper is recomputed by `scripts/paper_numbers.py` from released files. Total compute was about 13 GPU-hours on Kaggle 4×L4 plus CPU-only verification.
 
 ## References
 

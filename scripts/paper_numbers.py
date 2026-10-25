@@ -18,6 +18,7 @@ rng = random.Random(0)
 
 
 def ci(v, B=4000):
+    rng = random.Random(0)  # seeded per call: each interval is reproducible regardless of call order
     n = len(v)
     bs = sorted(sum(v[rng.randrange(n)] for _ in range(n)) / n for _ in range(B))
     return {"mean": round(sum(v) / n, 4), "lo": round(bs[int(.025 * B)], 4), "hi": round(bs[int(.975 * B)], 4), "n": n}
