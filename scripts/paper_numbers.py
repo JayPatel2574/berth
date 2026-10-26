@@ -164,6 +164,12 @@ def main():
             "agreement_ours_vs_official_on_compatible": dict(collections.Counter(
                 f"ours={o['ours']}|official={bool(o['official'].get('resolved'))}" for i, o in offi.items() if i in cid)),
         }
+        secs = {r["instance_id"]: r["seconds"] for r in res}
+        out["gemma_official"]["resolved_within_600s"] = ci(
+            [int(bool(offi[i]["official"].get("resolved")) and secs[i] <= 600) for i in sorted(offi) if i in cid])
+        lb = Path("data/leaderboard.json")
+        if lb.exists():
+            out["leaderboard"] = json.loads(lb.read_text())
         # localization failure share on compatible tasks, official grading
         unres = [r for r in res if r["instance_id"] in cid and r.get("patch") and not offi[r["instance_id"]]["official"].get("resolved")]
         out["gemma_official"]["unresolved_no_gold_file"] = ci([int(not (files_of(r["patch"]) & set(T(r)["localization"]["files"]))) for r in unres])

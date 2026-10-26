@@ -79,6 +79,8 @@ def main():
         ("underspec rates", f"resolve at {pct(go['compatible_underspecified']['mean'])}% against {pct(go['compatible_not_underspecified']['mean'])}% for the rest", None),
         ("cutoff rates", f"*less* often ({pct(go['compatible_pre_cutoff']['mean'])}%) than post-cutoff ones ({pct(go['compatible_post_cutoff']['mean'])}%)", None),
         ("breadth", f"{pct(go['compatible_files_1']['mean'])}% for one-file fixes, {pct(go['compatible_files_2']['mean'])}% for two, 0 of {go['compatible_files_3']['n']} for three", None),
+        ("leaderboard", f"scores **{n['leaderboard']['public_score']:.2f}** on the public leaderboard", None),
+        ("within 10 min", f"finished within 10 minutes of wall time, it resolves {pct(go['resolved_within_600s']['mean'])}%", None),
         ("pruning core", "For 44 tasks we dropped colliding ids: 2,006 must-pass entries and 152 fail-to-pass entries", None),
     ]
     for key, m in (("random", "Random"), ("tfidf_name", "TF-IDF (names)"), ("bm25", "BM25 (code)"), ("bm25+graph", "BM25 + graph")):
