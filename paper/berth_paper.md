@@ -115,7 +115,7 @@ We ran the competition checkpoint `gemma-4-31b-it-qat-w4a16-ct` on Kaggle's 4×L
 
 ### 5.3 Hidden-test calibration
 
-The same agent, ported unchanged to the competition's declarative `agent.yaml` (budget 4.5 minutes per task, one task at a time, to fit the scorer's 12-hour limit), scores **[LB_SCORE]** on the public leaderboard's hidden private-repository tasks. **[LB_SENTENCE]**
+The same agent, ported unchanged to the competition's declarative `agent.yaml` (budget 4.5 minutes per task, one task at a time, to fit the scorer's 12-hour limit), was submitted to the main competition's leaderboard, which scores it on hidden tasks from private repositories. Its score was still pending when this version was written, and will be added here when available. The comparison will calibrate Berth's difficulty against the hidden test, with one caveat: the leaderboard budget (4.5 minutes per task, one at a time) is much tighter than the 20 minutes used in §5.2.
 
 ## 6. Intended uses
 
